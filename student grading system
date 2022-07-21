@@ -1,0 +1,81 @@
+class Student:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+        self.display()
+
+    def display(self):
+        print("Name:\t", self.name, "Id_number:\t", self.id)
+
+
+class Grade(Student):
+    def __init__(self, name, id, mark, ):
+        super().__init__(name, id)  # CALL TO CONSTRUCTOR OF SUPER CLASS
+        self.mark = mark
+        self.calculate()
+
+    def calculate(self):
+        if 90 <= self.mark <= 100:
+            grade = "A+"
+            return grade
+        elif 85 <= self.mark < 90:
+            grade = "A"
+            return grade
+        elif 80 <= self.mark < 85:
+            grade = "A-"
+            return grade
+        elif 75 <= self.mark < 80:
+            grade = "B+"
+            return grade
+        elif 70 <= self.mark < 75:
+            grade = "B"
+            return grade
+        elif 65 <= self.mark < 70:
+            grade = "B-"
+            return grade
+        elif 60 <= self.mark < 65:
+            grade = "C+"
+            return grade
+        elif 55 <= self.mark < 60:
+            grade = "C"
+            return grade
+        elif 50 <= self.mark < 55:
+            grade = "C-"
+            return grade
+        else:
+            grade = "F"
+            return grade
+
+
+class remark(Grade):
+    pass
+
+
+def Remark(grade):
+    if grade == "A+":
+        return "Excellent"
+    elif grade == "A":
+        return "Very Good"
+    elif grade == "A-":
+        return "Good"
+    elif grade == "B+":
+        return "Remarkable"
+    elif grade == "B":
+        return "satisfactory"
+    elif grade == "B-":
+        return "fair"
+    elif grade == "C":
+        return "Not_Bad"
+    elif grade == "C-":
+        return "poor"
+    else:
+        return "Very_Bad"
+
+
+Name = input("Enter the name of student:\n")
+Id = input("Enter student Id number:\n")
+Mark = float(input("Enter the mark of student:\n"))
+student = Grade(Name, Id, Mark)
+R = student.calculate()
+print("Name\t Id_Number\t Grade\t Remark\n")
+print(student.name, student.id, student.mark, Remark(R))
